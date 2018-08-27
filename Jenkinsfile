@@ -6,7 +6,7 @@ stages {
                       echo 'Running build automation'
                       sh    "pwd"
                              sh "mkdir -p ArchievedDir"
-                      archiveArtifacts artifacts: 'archieve-web-index.zip'
+                      archiveArtifacts artifacts: '.'
             }
 }
 }
