@@ -7,7 +7,7 @@ agent any
                       echo 'Running build automation'
                        
                         sh "mkdir -p output"
-                         sh "zip output/archieved-output.zip *"
+                         sh "zip output/archived-output.zip *"
                       archiveArtifacts artifacts: 'output/archived-output.zip' //output will be in output/archived-output.zip
             }
 }
