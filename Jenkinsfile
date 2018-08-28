@@ -37,7 +37,8 @@ agent any
                                         //   sh "unzip /tmp/archived-output.zip /var/www/html"
                                        // execCommand: 'rm -rf /opt/archived-output.zip/*'
                                         //  execCommand 'unzip /tmp/archieved-output.zip /var/www/html/'
-                                          execCommand ' sudo systemctl restart httpd '
+                                        //  execCommand ' sudo systemctl restart httpd '
+                                            execCommand: 'sudo /usr/bin/systemctl stop httpd && rm -rf /opt/archived-output.zip/* && unzip /tmp/archived-output.zip -d /var/www/html/ && sudo /usr/bin/systemctl start httpd'
                                  )
                                 ]
                             )
