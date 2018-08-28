@@ -4,9 +4,10 @@ stages {
        stage('Archive build output') {
                       steps {
                       echo 'Running build automation'
-                      sh    "pwd"
-                          //   sh "mkdir -p ArchievedDir"
-                      archiveArtifacts artifacts: '*/mina.zip'
+                       
+                        sh "mkdir -p output"
+                         sh "zip output/archieved-output.zip *"
+                      archiveArtifacts artifacts: 'output/archieved-output.zip'
             }
 }
 }
