@@ -35,12 +35,14 @@ agent any
                                         removePrefix: 'output/',
                                         remoteDirectory: '/tmp',
                                         execCommand: 'rm -rf /opt/archived-output.zip/* && unzip /tmp/archived-output.zip -d . && cp /tmp/index.html /var/www/html && sudo /usr/bin/systemctl restart httpd'
-                                    )
+                                 )
                                 ]
                             )
                         ]
                     )
                 }
             }
-}
+        }
+    }
+}    
 
