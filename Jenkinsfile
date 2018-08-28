@@ -5,7 +5,7 @@ stages {
                       steps {
                       echo 'Running build automation'
                       sh    "pwd"
-                             sh "mkdir -p ArchievedDir"
+                          //   sh "mkdir -p ArchievedDir"
                       archiveArtifacts artifacts: '*'
             }
 }
