@@ -46,7 +46,45 @@ agent any
                     )
                 }
             }
+}
+
+/* stage of Deploying to PRODUCTION Seb Server */
+          stage('Deploying to Production web server FINAL') {
+            when {                 /*It's the Running stage condition, this stage will be running in case of meeting the condition*/
+                
+                branch 'master'   // only in master branch 
+}
+                 steps {
+                        input 'Do You want to Deploy to production Web Server ??? '
+                         milestone(1)
+                        
+ withCredentials([usernamePassword(credentialsId: 'web_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+                    sshPublisher(  //using of publish over ssh plugin to move source code files to stage web server over ssh
+                           failOnError: true,
+                          continueOnError: false,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'production',
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                    encryptedPassphrase: "$USERPASS"
+                                ], 
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: 'output/archived-output.zip',
+                                    //    removePrefix: 'output/',
+                                        remoteDirectory: '/tmp',
+                                    
+                           execCommand: 'sudo unzip /tmp/output/archived-output.zip -d /tmp/output/ && sudo rm -rf /var/www/html/index.html && sudo mv /tmp/output/index.html /var/www/html/ && sudo chown -R apache:apache /var/www/html/ && sudo rm -rf /tmp/output/ && sudo systemctl restart httpd'
+                                           
+                                           
+                                                                               )
+                                ]
+                            )
+                        ]
+                    )
+                }
+            }
         }
     }
-}    
-
+}
