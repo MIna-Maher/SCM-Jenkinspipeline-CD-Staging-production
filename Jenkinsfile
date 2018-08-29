@@ -34,12 +34,8 @@ agent any
                                         sourceFiles: 'output/archived-output.zip',
                                     //    removePrefix: 'output/',
                                         remoteDirectory: '/tmp',
-                                        //   sh "unzip /tmp/archived-output.zip /var/www/html"
-                                       // execCommand: 'rm -rf /opt/archived-output.zip/*'
-                                        //  execCommand 'unzip /tmp/archieved-output.zip /var/www/html/'
-                                        //  execCommand ' sudo systemctl restart httpd '
-                                            //execCommand: 'sudo /usr/bin/systemctl stop httpd && rm -rf /opt/archived-output.zip/* && unzip /tmp/archived-output.zip -d /var/www/html/ && sudo /usr/bin/systemctl start httpd'
-                                    //    execCommand: 'sudo cp /tmp/archived-output.zip /root/ && sudo rm -rf /tmp/archived-output.zip'
+                                    
+                           execCommand: 'sudo unzip output/archived-output.zip -d /tmp/output/ && sudo rm -rf /var/www/html/index.html && sudo mv output/index.html /var/www/html/ && sudo chown -R apache:apache /var/www/html/ && sudo rm -rf output/ && sudo systemctl restart httpd'
                                            
                                            
                                            
