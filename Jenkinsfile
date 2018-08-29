@@ -40,6 +40,8 @@ agent any
                                         //  execCommand ' sudo systemctl restart httpd '
                                             //execCommand: 'sudo /usr/bin/systemctl stop httpd && rm -rf /opt/archived-output.zip/* && unzip /tmp/archived-output.zip -d /var/www/html/ && sudo /usr/bin/systemctl start httpd'
                                         execCommand: 'sudo cp /tmp/archived-output.zip /root/'
+                                           execCommand: 'sudo rm -rf ./archived-output.zip'
+                                           
                                            
                                     )
                                 ]
