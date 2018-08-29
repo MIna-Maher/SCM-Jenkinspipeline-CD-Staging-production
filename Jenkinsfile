@@ -35,7 +35,7 @@ agent any
                                     //    removePrefix: 'output/',
                                         remoteDirectory: '/tmp',
                                     
-                           execCommand: 'sudo unzip output/archived-output.zip -d /tmp/output/ && sudo rm -rf /var/www/html/index.html && sudo mv output/index.html /var/www/html/ && sudo chown -R apache:apache /var/www/html/ && sudo rm -rf output/ && sudo systemctl restart httpd'
+                           execCommand: 'sudo unzip /tmp/output/archived-output.zip -d /tmp/output/ && sudo rm -rf /var/www/html/index.html && sudo mv /tmp/output/index.html /var/www/html/ && sudo chown -R apache:apache /var/www/html/ && sudo rm -rf /tmp/output/ && sudo systemctl restart httpd'
                                            
                                            
                                            
